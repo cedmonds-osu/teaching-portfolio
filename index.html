@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Monsters of the Midnight Zone Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Online teaching philosophy and portfolio of Caroline Edmonds, Oregon State University.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: sticky left "depth gauge" nav that descends through the portfolio; one section shown at a time; stacks to a chip bar on phones */
+:root {
+  --bg: #eef3f5;
+  --surface: #ffffff;
+  --ink: #102634;
+  --muted: #4d6574;
+  --line: #cfdce3;
+  --accent: #17707f;
+  --accent-soft: #dcecef;
+  --lure: #a8620f;
+  --lure-soft: #f7ead8;
+  --font-display: "Gloock", Georgia, "Times New Roman", serif;
+  --font-body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b1821; --surface: #112330; --ink: #dce7ed; --muted: #93aab7; --line: #23394a;
+    --accent: #5ec3d1; --accent-soft: #15333f; --lure: #e9a64f; --lure-soft: #2e2416; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0b1821; --surface: #112330; --ink: #dce7ed; --muted: #93aab7; --line: #23394a;
+  --accent: #5ec3d1; --accent-soft: #15333f; --lure: #e9a64f; --lure-soft: #2e2416; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: var(--accent); text-underline-offset: 2px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-block: 32px 64px; }
+
+/* Header */
+.masthead { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px 32px; padding-bottom: 20px; border-bottom: 1px solid var(--line); margin-bottom: 28px; }
+.masthead h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.9rem, 4vw, 2.7rem); line-height: 1.1; margin: 0; text-wrap: balance; }
+.masthead .who { color: var(--muted); margin: 6px 0 0; }
+.masthead .tag { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+
+.layout { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 40px; align-items: start; }
+
+/* Depth gauge nav */
+.gauge { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 20px); }
+.gauge ol { list-style: none; margin: 0; padding: 0 0 0 18px; border-left: 2px solid var(--line); display: grid; gap: 2px; }
+.gauge a { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: baseline; padding: 7px 10px; margin-left: -10px; border-radius: 6px; text-decoration: none; color: var(--ink); position: relative; }
+.gauge a::before { content: ""; position: absolute; left: -24px; top: 50%; width: 10px; height: 10px; margin-top: -5px; border-radius: 50%; background: var(--bg); border: 2px solid var(--line); }
+.gauge a:hover { background: var(--accent-soft); }
+.gauge a[aria-current="page"] { background: var(--accent-soft); font-weight: 600; }
+.gauge a[aria-current="page"]::before { background: var(--accent); border-color: var(--accent); }
+.gauge .depth { font-family: var(--font-mono); font-size: 0.72rem; color: var(--muted); font-variant-numeric: tabular-nums; font-weight: 400; }
+.gauge .soon { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--lure); }
+.gauge-note { font-size: 0.8rem; color: var(--muted); margin: 18px 0 0; padding-left: 18px; }
+
+/* Content */
+main { min-width: 0; }
+.view { max-width: 72ch; }
+.eyebrow { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin: 0 0 8px; }
+.view h2 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.7rem, 3.4vw, 2.3rem); line-height: 1.15; margin: 0 0 18px; text-wrap: balance; }
+.view h3 { font-size: 1.15rem; margin: 34px 0 10px; text-wrap: balance; }
+.view h4 { font-size: 1rem; margin: 24px 0 6px; }
+.view p, .view li { max-width: 68ch; }
+.view ul, .view ol { padding-left: 1.3em; }
+.view li + li { margin-top: 4px; }
+
+.annotation { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 0 0 28px; }
+.annotation .label { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 4px; }
+.annotation p { margin: 0; }
+.annotation p + p { margin-top: 8px; }
+
+.meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; padding: 0; list-style: none; }
+.meta li { margin: 0 !important; font-size: 0.82rem; padding: 4px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--ink); }
+
+.lo { border: 1px solid var(--line); background: var(--surface); border-radius: 8px; padding: 14px 18px; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 16px; }
+.lo + .lo { margin-top: 10px; }
+.lo .code { font-family: var(--font-mono); font-weight: 500; color: var(--accent); grid-row: span 2; padding-top: 2px; }
+.lo .text { font-weight: 600; }
+.lo .bloom { font-size: 0.85rem; color: var(--muted); }
+
+.table-scroll { overflow-x: auto; margin: 14px 0 20px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 0.88rem; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px; border-bottom: 1px solid var(--line); }
+th { background: var(--accent-soft); font-weight: 600; }
+tr:last-child td { border-bottom: 0; }
+table.wide { min-width: 820px; }
+td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+.callout { background: var(--accent-soft); border-radius: 8px; padding: 14px 18px; margin: 18px 0; }
+.callout p { margin: 0; }
+
+/* Template (in-progress) panels */
+.template-flag { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--lure); background: var(--lure-soft); padding: 5px 12px; border-radius: 999px; margin-bottom: 16px; }
+.slot { border: 2px dashed var(--lure); border-radius: 10px; padding: 16px 20px; margin: 14px 0; background: var(--surface); }
+.slot h4 { margin: 0 0 6px; }
+.slot p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+.slot ul { margin: 8px 0 0; color: var(--muted); font-size: 0.92rem; }
+
+/* Home cards */
+.contents { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; margin: 22px 0; }
+.contents a { display: grid; gap: 4px; align-content: start; padding: 14px 16px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); text-decoration: none; color: var(--ink); }
+.contents a:hover { border-color: var(--accent); }
+.contents .t { font-weight: 600; }
+.contents .d { font-size: 0.86rem; color: var(--muted); }
+.contents .s { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); }
+.contents .s.soon { color: var(--lure); }
+
+.pager { display: flex; justify-content: space-between; gap: 12px; margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line); flex-wrap: wrap; }
+.pager a { text-decoration: none; font-weight: 600; }
+.pager span { display: block; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-weight: 400; }
+.pager .next { text-align: right; margin-left: auto; }
+
+footer { margin-top: 56px; font-size: 0.82rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 16px; }
+
+@media (max-width: 820px) {
+  .layout { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .gauge { position: static; }
+  .gauge ol { display: flex; gap: 6px; overflow-x: auto; border-left: 0; padding: 0 0 6px; }
+  .gauge li { flex: 0 0 auto; }
+  .gauge a { display: flex; gap: 8px; margin-left: 0; border: 1px solid var(--line); white-space: nowrap; }
+  .gauge a::before { display: none; }
+  .gauge-note { display: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .view:not([hidden]) { animation: rise .35s ease-out; }
+  @keyframes rise { from { transform: translateY(6px); opacity: .6; } to { transform: none; opacity: 1; } }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="masthead">
+    <div>
+      <h1>Monsters of the Midnight Zone</h1>
+      <p class="who">Online Teaching Philosophy &amp; Portfolio · Caroline Edmonds, Oregon State University</p>
+    </div>
+    <span class="tag">Deep-sea ecology · Online course design</span>
+  </header>
+
+  <div class="layout">
+    <nav class="gauge" aria-label="Portfolio sections">
+      <ol>
+        <li><a href="#home"><span>Introduction</span><span class="depth">0 m</span></a></li>
+        <li><a href="#philosophy"><span>Teaching Philosophy</span><span class="soon">Draft</span></a></li>
+        <li><a href="#syllabus"><span>Syllabus Selections</span><span class="soon">Draft</span></a></li>
+        <li><a href="#outcomes"><span>Learning Outcomes</span><span class="depth">1,000 m</span></a></li>
+        <li><a href="#multimedia"><span>Multimedia</span><span class="soon">Draft</span></a></li>
+        <li><a href="#discussion"><span>Discussion Activity</span><span class="soon">Draft</span></a></li>
+        <li><a href="#formative"><span>Formative: Dive Log</span><span class="depth">3,900 m</span></a></li>
+        <li><a href="#summative"><span>Summative: Monster Files</span><span class="depth">4,000 m</span></a></li>
+      </ol>
+      <p class="gauge-note">The portfolio descends like an ROV dive, from the surface introduction to the deepest assessment.</p>
+    </nav>
+
+    <main id="main">
+
+      <!-- ============ HOME ============ -->
+      <section class="view" id="view-home" data-view="home">
+        <p class="eyebrow">Introduction</p>
+        <h2>A portfolio for teaching the deep sea online</h2>
+        <div class="annotation">
+          <span class="label">Draft introduction · edit to your voice</span>
+          <p>Welcome. I'm a PhD student in Ocean, Earth, and Atmospheric Sciences at Oregon State University, where I study deep-sea benthic communities using imagery from remotely operated vehicles (ROVs). Most people will never see the deep sea in person, which makes it an ideal subject for online learning: the same livestreamed dive footage I use for research can put every student in the control room.</p>
+          <p>This portfolio presents materials from a fully online, asynchronous course I designed, <em>Monsters of the Midnight Zone: Myth, Media, and the Real Deep Sea</em>. The course is for non-majors and pairs famous media portrayals of deep-sea "monsters" with the real science behind them. Each item below includes a short note explaining why it's here and what it shows about how I design and facilitate online learning.</p>
+        </div>
+
+        <h3>About the course</h3>
+        <p>For most of human history, the deep sea was a blank space on the map, and people filled it with monsters. This interdisciplinary course looks at how our view of the deep ocean has been shaped by history, media, and science. Each unit pairs a media portrayal with the real science behind it, as students compare movie monsters to actual deep-sea animals, test documentary storytelling against research, and explore footage from underwater robots on the seafloor today. Along the way, we ask why the unknown frightens us, who gets to tell the story of places few will ever see, and how those stories shape real decisions about exploring, protecting, or mining the deep sea. No science background is required.</p>
+
+        <h3>What's inside</h3>
+        <div class="contents">
+          <a href="#philosophy"><span class="s soon">In progress</span><span class="t">Online Teaching Philosophy</span><span class="d">My approach to teaching ocean science online, in 500 words.</span></a>
+          <a href="#syllabus"><span class="s soon">In progress</span><span class="t">Syllabus Selections</span><span class="d">Technology, communication, response times, and netiquette.</span></a>
+          <a href="#outcomes"><span class="s">Complete</span><span class="t">Learning Outcomes</span><span class="d">Four measurable outcomes built with backward design.</span></a>
+          <a href="#multimedia"><span class="s soon">In progress</span><span class="t">Multimedia Content</span><span class="d">A media item that supports a course outcome.</span></a>
+          <a href="#discussion"><span class="s soon">In progress</span><span class="t">Discussion Activity</span><span class="d">Asynchronous interaction beyond "post and reply."</span></a>
+          <a href="#formative"><span class="s">Complete</span><span class="t">Formative: Dive Log</span><span class="d">Students build a shared water column from real ROV footage.</span></a>
+          <a href="#summative"><span class="s">Complete</span><span class="t">Summative: Monster Files</span><span class="d">A fact-check and field guide project in place of an exam.</span></a>
+        </div>
+      </section>
+
+      <!-- ============ PHILOSOPHY (TEMPLATE) ============ -->
+      <section class="view" id="view-philosophy" data-view="philosophy" hidden>
+        <p class="eyebrow">Part 1</p>
+        <h2>Online Teaching Philosophy</h2>
+        <span class="template-flag">Template · content coming</span>
+        <p>One page, 500 words maximum, focused only on online teaching and grounded in ocean science.</p>
+        <div class="slot">
+          <h4>Philosophy statement</h4>
+          <p>Paste the final statement here. Points the assignment suggests covering, in the context of the deep sea:</p>
+          <ul>
+            <li>Your role in the online class (sage on the stage vs. guide on the side)</li>
+            <li>Principles of online course design and their effect on learning</li>
+            <li>Asynchronous vs. synchronous communication</li>
+            <li>The role of media, such as livestreamed ROV dives</li>
+            <li>Learning activities, including social media and other technologies</li>
+            <li>Strategies that encourage learner engagement</li>
+            <li>Teaching and learning theories and methods (e.g., constructivism, inquiry-based learning)</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============ SYLLABUS (TEMPLATE) ============ -->
+      <section class="view" id="view-syllabus" data-view="syllabus" hidden>
+        <p class="eyebrow">Portfolio item</p>
+        <h2>Syllabus Selections</h2>
+        <span class="template-flag">Template · content coming</span>
+        <div class="slot"><h4>Annotation</h4><p>Two or three sentences on why these excerpts matter for an online course.</p></div>
+        <div class="slot"><h4>Technology requirements</h4><p>Hardware, software, and internet needs (Canvas, Canvas Studio, Padlet, YouTube) and where to get help.</p></div>
+        <div class="slot"><h4>Acceptable file formats</h4><p>Formats accepted for assignments (e.g., .docx, PDF).</p></div>
+        <div class="slot"><h4>Communication and response times</h4><p>How to reach you (Canvas Inbox), and when students can expect replies and assignment feedback.</p></div>
+        <div class="slot"><h4>Netiquette statement</h4><p>Expectations for respectful discussion, including on shared boards like Padlet.</p></div>
+        <div class="slot"><h4>Accessibility, AI use, and academic integrity</h4><p>DAS statement, course AI policy, and support resources.</p></div>
+      </section>
+
+      <!-- ============ OUTCOMES ============ -->
+      <section class="view" id="view-outcomes" data-view="outcomes" hidden>
+        <p class="eyebrow">Portfolio item</p>
+        <h2>Course Learning Outcomes</h2>
+        <div class="annotation">
+          <span class="label">Why this is here · draft annotation</span>
+          <p>These four outcomes anchor every assessment in the course through backward design. Each describes something a student can do long after the course ends, uses an observable verb from Bloom's Taxonomy, and can be measured. The formative Dive Log practices LO1, and the summative Monster Files project assesses LO2.</p>
+        </div>
+        <p>By the end of the course, students will be able to:</p>
+        <div class="lo"><span class="code">LO1</span><span class="text">Explain how the physical conditions of the deep sea shape the organisms and the habitats found globally.</span><span class="bloom">Bloom's level: Understand · Practiced in the formative Dive Log</span></div>
+        <div class="lo"><span class="code">LO2</span><span class="text">Distinguish scientific evidence from exaggeration/invention by comparing fictional creatures to the real organisms that inspired them.</span><span class="bloom">Bloom's level: Analyze · Assessed in the summative Monster Files project</span></div>
+        <div class="lo"><span class="code">LO3</span><span class="text">Compare how different groups such as scientists, filmmakers, local communities, and industry portray the deep sea and identify whose perspectives are left out.</span><span class="bloom">Bloom's level: Analyze</span></div>
+        <div class="lo"><span class="code">LO4</span><span class="text">Construct an evidence-based argument about how public perceptions of the deep sea influence decisions on exploration, conservation, or deep-sea mining.</span><span class="bloom">Bloom's level: Create</span></div>
+
+        <h3>How these were developed</h3>
+        <p>I began with twelve AI-generated outcomes from my course title and description, then refined and combined them using course resources on writing student-centered, measurable, and observable outcomes and OSU's <a href="https://curriculummanagement.oregonstate.edu/sites/curriculummanagement.oregonstate.edu/files/student_learning_outcomes_chart_2023.pdf" target="_blank" rel="noopener">Student Learning Outcomes chart</a>. I've kept this step visible to be transparent about how AI supported the process.</p>
+        <p style="font-size:.85rem;color:var(--muted)">Anthropic. (2026). <em>Claude</em> (Opus 5.5 version) [Large language model]. https://claude.ai</p>
+      </section>
+
+      <!-- ============ MULTIMEDIA (TEMPLATE) ============ -->
+      <section class="view" id="view-multimedia" data-view="multimedia" hidden>
+        <p class="eyebrow">Portfolio item</p>
+        <h2>Multimedia Content</h2>
+        <span class="template-flag">Template · content coming</span>
+        <div class="slot"><h4>Annotation</h4><p>What the item is, which learning outcome it supports, and why you chose or made it.</p></div>
+        <div class="slot"><h4>The item</h4><p>A link to the video, mini lecture, podcast, infographic, or other resource (the Week 4 item, or a high-quality, stable found object). Videos can't be embedded here; link out and add a thumbnail image if you like.</p></div>
+        <div class="slot"><h4>Accessibility</h4><p>Captions, transcript, or alt text details.</p></div>
+      </section>
+
+      <!-- ============ DISCUSSION (TEMPLATE) ============ -->
+      <section class="view" id="view-discussion" data-view="discussion" hidden>
+        <p class="eyebrow">Portfolio item</p>
+        <h2>Asynchronous Discussion Activity</h2>
+        <span class="template-flag">Template · content coming</span>
+        <div class="slot"><h4>Annotation</h4><p>How the activity moves beyond "post and reply" and what kind of interaction it builds.</p></div>
+        <div class="slot"><h4>Learning outcome alignment</h4><p>Which LO the discussion supports.</p></div>
+        <div class="slot"><h4>Purpose statement</h4><p>Student-facing purpose.</p></div>
+        <div class="slot"><h4>Student-facing instructions</h4><p>Step-by-step instructions and due dates.</p></div>
+        <div class="slot"><h4>Rubric</h4><p>Criteria and point values.</p></div>
+      </section>
+
+      <!-- ============ FORMATIVE ============ -->
+      <section class="view" id="view-formative" data-view="formative" hidden>
+        <p class="eyebrow">Formative assessment · Guided practice</p>
+        <h2>Dive Log: Building Our Class Water Column</h2>
+        <div class="annotation">
+          <span class="label">Why this is here · draft annotation</span>
+          <p>This low-stakes activity puts students in the scientist's seat with real, unedited ROV footage from an Argentine-led expedition in the Mar del Plata Canyon. Each student pins one organism at the depth they observed it on a shared Padlet board, so the class builds a picture of the whole canyon that no single dive could show. It demonstrates active learning, peer-to-peer interaction, a deliberate look at whose voices are represented, and a feedback loop: I use what I see on the board to plan a follow-up video.</p>
+        </div>
+        <ul class="meta">
+          <li>Unit 2</li><li>5 points · Complete / Not Yet</li><li>LO1</li><li>About 1.5–2 hours</li><li>Padlet + Canvas</li>
+        </ul>
+
+        <h3>Learning outcome</h3>
+        <p>"Students will be able to explain how the physical conditions of the deep sea shape the organisms and the habitats found globally." <strong>(LO1)</strong></p>
+
+        <h3>Purpose</h3>
+        <p>So far in this unit we've talked a lot about how <em>other people</em> show the deep sea. This week, you get to see it for yourself. You'll watch real, unedited footage from a remotely operated vehicle (ROV) exploring the Mar del Plata Canyon off the coast of Argentina, nearly 4,000 meters down, and act as the scientist in the room.</p>
+        <p>One ROV dive only shows a small slice of the ocean. But if each of us brings back one animal and pins it at the depth where we saw it, together we can build a picture of the whole canyon, from its upper walls to its deepest coral mounds. Then we'll step back and ask: <strong>what changes as we go deeper, and which physical conditions explain those changes?</strong></p>
+        <p>This is a practice activity. There's no penalty for guessing wrong. Your best guesses tell both of us what's clicking and what needs more support, and I'll use what I see on our board to plan my follow-up for the class.</p>
+
+        <h3>Learning materials and links</h3>
+        <div class="table-scroll"><table>
+          <thead><tr><th scope="col">Material</th><th scope="col">What it is and how to use it</th></tr></thead>
+          <tbody>
+            <tr><td><strong>1. Mini-lecture: "Four Rules of the Midnight Zone"</strong> (about 5 min, Canvas Studio)</td><td>My short video introducing the four physical conditions you'll use all week: <strong>pressure, darkness, cold, and scarce food.</strong> Captions and a downloadable transcript are included.</td></tr>
+            <tr><td><strong>2. Dive footage: Schmidt Ocean Institute, "Station 69: Mar Del Plata Canyon, Argentina" (SOI Divestream 812)</strong></td><td>Livestreamed July 26, 2025, as ROV SuBastian explored the canyon wall and coral mounds. <a href="https://www.youtube.com/watch?v=w4XPAlruDfw" target="_blank" rel="noopener">Watch on YouTube</a>. Want to explore? You may choose any other dive from this expedition on the <a href="https://www.youtube.com/@SchmidtOcean" target="_blank" rel="noopener">Schmidt Ocean YouTube channel</a> (search "Mar Del Plata Canyon"). Different dives at different depths make our class board richer!</td></tr>
+            <tr><td><strong>3. Smithsonian Ocean: "Light at the Bottom of the Deep Dark Ocean"</strong></td><td>A short, readable page on how deep-sea animals adapt to darkness, including bioluminescence. Skim it before you watch. <a href="https://ocean.si.edu/educators-corner/light-bottom-deep-dark-ocean" target="_blank" rel="noopener">Smithsonian Ocean page</a></td></tr>
+            <tr><td><strong>4. CONICET expedition announcement</strong> (in Spanish)</td><td>The expedition's official goals: biodiversity, coral habitats, marine litter and microplastics, and open data. Use your browser's translate button if needed. <a href="https://www.conicet.gov.ar/transmision-en-vivo-a-3-900-metros-de-profundidad-en-colaboracion-con-el-schmidt-ocean-institute-investigadores-del-conicet-realizan-la-expedicion-underwater-oases-of-mar-del-plata-canyon/" target="_blank" rel="noopener">CONICET announcement</a></td></tr>
+            <tr><td><strong>5. Our class Padlet: "Mar del Plata Canyon Water Column"</strong></td><td>A shared board with one column for each depth zone. This is where you'll pin your organism and comment on classmates' posts. No Padlet account is needed. New to Padlet? See <a href="https://padlet.help" target="_blank" rel="noopener">Padlet Help</a>.</td></tr>
+          </tbody>
+        </table></div>
+        <div class="callout"><p><strong>A note on whose voices you're hearing:</strong> this dive was led by Argentine scientists from CONICET, Argentina's national science agency, with chief scientist Dr. Daniel Lauretta of the Museo Argentino de Ciencias Naturales. That's a welcome change from the U.S. and European voices that dominate most deep-sea media, and the CONICET announcement lets you hear the expedition described in Argentina's own words and language. But the dive also happened aboard a ship owned by the Schmidt Ocean Institute, a U.S. nonprofit founded by Eric Schmidt (former CEO of Google) and Wendy Schmidt. The Smithsonian page comes from U.S. museum and federal (NOAA) educators, and I'm a U.S.-based deep-sea ecologist at Oregon State University. Your classmates' posts on our Padlet add one more set of voices: yours. Voices we <em>don't</em> hear in these materials include Argentina's coastal and Indigenous communities and the fishers who work these waters. Keep asking: <em>who pays for deep-sea exploration, and who gets to tell its story?</em> We'll dig into that question in Unit 3.</p></div>
+
+        <h3>Step-by-step instructions</h3>
+        <p>Plan on about <strong>1.5–2 hours</strong> total, spread across the week.</p>
+        <h4>Step 1: Get ready (about 20 minutes)</h4>
+        <ul>
+          <li>Watch my mini-lecture, "Four Rules of the Midnight Zone." Jot down the four conditions; you'll use them in your post and your comments.</li>
+          <li>Skim the Smithsonian page on darkness and bioluminescence.</li>
+          <li>Open our class Padlet and take a look around. Notice the depth columns and the sample post I've pinned at the top.</li>
+        </ul>
+        <h4>Step 2: Choose your dive and your 20-minute window (about 30 minutes)</h4>
+        <ul>
+          <li><strong>Option A (recommended):</strong> use the Station 69 dive, starting where SuBastian is close to the canyon wall.</li>
+          <li><strong>Option B (explorer):</strong> scroll through any other Mar del Plata Canyon dive and pick a stretch that interests you. Exploring a dive at a depth our board doesn't have yet is a great contribution!</li>
+          <li>Either way, watch <strong>20 continuous minutes</strong> where the ROV is near the seafloor or animals are in view. It's fine to skim the descent at faster playback speed.</li>
+          <li><strong>Captions tip:</strong> the scientists may be speaking Spanish, English, or both. Click <strong>CC</strong>, then <strong>Settings → Subtitles → Auto-translate → English</strong> (or your preferred language).</li>
+        </ul>
+        <h4>Step 3: Choose your organism and take a screenshot (about 15 minutes)</h4>
+        <ul>
+          <li>Pause on <strong>one organism</strong> that catches your eye and take a screenshot. If the ROV's on-screen data shows depth and temperature, try to include it in the frame.</li>
+          <li>Check the Padlet first. If a classmate has already pinned the same animal <em>at the same depth</em>, pick a different one. The same type of animal at a <em>different</em> depth is welcome.</li>
+          <li>You don't need to know the animal's name. A clear description like "orange, five-armed sea star" is perfect.</li>
+        </ul>
+        <h4>Step 4: Pin your organism to the class water column (by Thursday of Week 4)</h4>
+        <div class="table-scroll"><table>
+          <thead><tr><th scope="col">Post element</th><th scope="col">What to include</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Title</strong></td><td>A short description of the organism (for example, "Orange five-armed sea star").</td></tr>
+            <tr><td><strong>Screenshot + image description</strong></td><td>Your screenshot, plus 1–2 sentences describing what the image shows so that classmates using screen readers can follow along.</td></tr>
+            <tr><td><strong>Where and when</strong></td><td>Dive name, timestamp, and depth and temperature (from the on-screen data, if shown).</td></tr>
+            <tr><td><strong>What I see</strong></td><td>At least 2 observable details: shape, color, size compared with something nearby, or behavior.</td></tr>
+            <tr><td><strong>Condition → feature</strong></td><td>One feature linked to one of the four conditions, with a "because." <em>Example: "It's red, which works like camouflage because of darkness: red light doesn't reach this deep, so red looks black."</em></td></tr>
+            <tr><td><strong>Confidence</strong></td><td>"Sure" or "Guessing." Guesses are welcome!</td></tr>
+          </tbody>
+        </table></div>
+        <h4>Step 5: Comment on two classmates' pins (by Sunday of Week 4)</h4>
+        <p>Comment on <strong>two</strong> classmates' posts, and make at least one of them in a <strong>different depth column</strong> from yours. Engage with their reasoning in 2–3 sentences. Starters: "Another condition that might explain this is… because…", "Compared with my animal at ___ m, yours…", "I wonder whether…"</p>
+        <h4>Step 6: Write your Pattern Post (by Sunday of Week 4)</h4>
+        <p>Once the board has filled in, scroll through the <strong>whole water column</strong>, top to bottom. Then add a post in the <strong>"Patterns We See"</strong> column (3–5 sentences):</p>
+        <ul>
+          <li>Describe one pattern you notice across at least <strong>two depth zones</strong>: who lives there, how animals look or move, or how much life there is.</li>
+          <li>Explain which of the four conditions you think causes that pattern, and why.</li>
+          <li>Share <strong>one question</strong> you still have about life in the deep sea.</li>
+        </ul>
+        <h4>What happens next</h4>
+        <p>I'll read the whole board, paying special attention to the posts marked "Guessing," the patterns you spot, and the questions you ask. On <strong>Monday of Week 5</strong>, I'll post a short video walking through our class water column, highlighting great observations, answering common questions, and clearing up mix-ups.</p>
+
+        <h3>What success looks like</h3>
+        <p>This activity is scored <strong>Complete / Not Yet</strong> (5 points). I'm looking at your <strong>reasoning and participation, not whether every guess is right.</strong> If any part is marked Not Yet, you'll get feedback and can revise by <strong>Wednesday of Week 5</strong> for full credit.</p>
+        <div class="table-scroll"><table class="wide">
+          <thead><tr><th scope="col">Criterion</th><th scope="col">Complete looks like…</th><th scope="col">Not Yet looks like…</th><th scope="col">Connects to</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Careful observation</strong></td><td>One organism pinned in the correct depth column with a screenshot, dive name, timestamp, and at least 2 observable details. Depth and temperature included when shown.</td><td>Missing screenshot or depth, or description too vague to picture (e.g., "a fish").</td><td>LO1</td></tr>
+            <tr><td><strong>Condition → feature link</strong></td><td>One feature explicitly linked to a named physical condition (pressure, darkness, cold, or scarce food) with a "because" explanation.</td><td>Feature listed with no condition, or no explanation of the connection.</td><td>LO1 (core skill)</td></tr>
+            <tr><td><strong>Accessible post</strong></td><td>Screenshot includes a 1–2 sentence image description.</td><td>Image description missing.</td><td>Accessibility</td></tr>
+            <tr><td><strong>Comments on classmates' pins</strong></td><td>Two comments, at least one in a different depth column, that engage with the classmate's reasoning.</td><td>Fewer than two comments, or general praise only ("Great job!").</td><td>LO1</td></tr>
+            <tr><td><strong>Pattern Post</strong></td><td>Describes a pattern across at least two depth zones and explains it using at least one physical condition.</td><td>Describes a single animal only, or names a pattern with no condition-based explanation.</td><td>LO1</td></tr>
+            <tr><td><strong>Self-check</strong></td><td>Confidence (Sure/Guessing) marked on your pin, and one genuine question in your Pattern Post.</td><td>Confidence or question missing.</td><td>Self-assessment</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>Accessibility, privacy, AI use, and support</h3>
+        <ul>
+          <li>All of my videos have captions and transcripts. For the dive footage, use YouTube's captions or auto-translate. If they don't work for you, message me for a different section or an alternative.</li>
+          <li>If streaming video is a barrier, message me and I'll send still images with written descriptions so you can complete the activity that way.</li>
+          <li><strong>Padlet and privacy:</strong> our board is shared only with our class. Post with just your first or preferred name. If you'd rather not use Padlet, or it doesn't work with your assistive technology, you can post in a Canvas discussion instead and I'll add it to the board without your name.</li>
+          <li><strong>AI tools:</strong> you may use AI to help translate captions or suggest what animal you might be looking at. Your observations, explanations, comments, and Pattern Post must be your own. If you use AI, add a one-line note to your pin saying how.</li>
+          <li>Accommodations are determined and approved by Disability Access Services (DAS): 541-737-4098 or <a href="https://ds.oregonstate.edu" target="_blank" rel="noopener">ds.oregonstate.edu</a>. You never need a DAS accommodation to ask me for an alternative.</li>
+        </ul>
+
+        <h3>References</h3>
+        <ul style="font-size:.88rem">
+          <li>CONICET. (2025, July 30). <em>Transmisión en vivo a 3.900 metros de profundidad: En colaboración con el Schmidt Ocean Institute, investigadores del CONICET realizan la expedición "Underwater Oases of Mar del Plata Canyon."</em></li>
+          <li>Schmidt Ocean Institute. (2025, July 26). <em>Station 69: Mar Del Plata Canyon, Argentina | SOI Divestream 812</em> [Video]. YouTube.</li>
+          <li>Smithsonian Ocean. (n.d.). <em>Light at the bottom of the deep dark ocean.</em> Smithsonian Institution.</li>
+          <li>AI use: Claude (Anthropic) helped brainstorm activity options, locate candidate materials, and draft and format the instructions. I chose the format, expedition, and materials, added the note on whose voices are represented, and revised the final draft.</li>
+        </ul>
+      </section>
+
+      <!-- ============ SUMMATIVE ============ -->
+      <section class="view" id="view-summative" data-view="summative" hidden>
+        <p class="eyebrow">Summative assessment</p>
+        <h2>Monster Files: Fact-Checking the Midnight Zone</h2>
+        <div class="annotation">
+          <span class="label">Why this is here · draft annotation</span>
+          <p>This project replaces a traditional exam with a creative, fully asynchronous task built through backward design from LO2. Students fact-check six claims in a short media clip about a deep-sea "monster," then publish a field guide entry comparing the monster to the real animal. It targets Bloom's <em>analyze</em> and <em>evaluate</em> levels, builds academic integrity in through personal clip choice, quoted timestamps, and a clear AI policy, and leaves students with a skill they can use on any science story.</p>
+        </div>
+        <ul class="meta">
+          <li>Unit 2</li><li>50 points</li><li>LO2</li><li>Fully online, asynchronous</li><li>Due Sunday of Week 5</li>
+        </ul>
+
+        <h3>Course learning outcome</h3>
+        <p>"Students will be able to distinguish scientific evidence from exaggeration/invention by comparing fictional creatures to the real organisms that inspired them." <strong>(LO2)</strong></p>
+
+        <h3>Statement of purpose</h3>
+        <p>The purpose of this summative assessment is to evaluate your ability to distinguish scientific evidence from exaggeration and invention in popular portrayals of the deep sea. Movies, documentaries, and viral videos shape how most people picture the deep ocean, often more than science does. In this project, you'll act as both a fact-checker and a naturalist: you'll test a media portrayal of a deep-sea "monster" against scientific evidence, then show the public what the real animal behind the legend is like. This assessment allows you to demonstrate mastery of key course concepts and build a skill you can use on any science story long after this course ends.</p>
+
+        <h3>Instructions</h3>
+        <p>Complete a three-part project that fact-checks a short media clip about a deep-sea "monster" and compares the monster to the real organism that inspired it.</p>
+        <h4>Choose your monster and clip</h4>
+        <p>Pick one creature from the curated list below (or propose another by messaging me in Canvas Inbox by Wednesday of Week 4). Then find a short media clip (3–10 minutes) that portrays it, such as a documentary segment, a TikTok or YouTube Short, a film scene, or a "Megalodon still lives"-style piece. Choose a clip with captions when possible.</p>
+        <div class="table-scroll"><table>
+          <thead><tr><th scope="col">Monster / media portrayal</th><th scope="col">Real organism(s) behind it</th></tr></thead>
+          <tbody>
+            <tr><td>The Kraken</td><td>Giant squid (<em>Architeuthis dux</em>), colossal squid</td></tr>
+            <tr><td>Megalodon "still lives"</td><td><em>Otodus megalodon</em> (fossil record), sleeper sharks</td></tr>
+            <tr><td>Sea serpents</td><td>Giant oarfish (<em>Regalecus glesne</em>)</td></tr>
+            <tr><td>"Nightmare" anglerfish</td><td>Deep-sea anglerfishes (Ceratioidei)</td></tr>
+            <tr><td>Mermaid "discoveries"</td><td>Marine mammals, mockumentary conventions</td></tr>
+            <tr><td>Viral "alien" deep-sea creatures</td><td>Goblin shark, giant isopod, siphonophores, etc.</td></tr>
+          </tbody>
+        </table></div>
+        <h4>Fact-Check Log (23 points)</h4>
+        <p>Identify <strong>6 scientific claims</strong> in your clip and rate each one against the scientific literature as <strong>Supported, Exaggerated, or Invented</strong>. For each claim, record the timestamp, the exact line (quoted), your verdict, 2–4 sentences of evidence explaining what the science says, and your source(s). Include at least one claim in each verdict category. Claims must be scientific (biology, size, behavior, habitat, depth, history of discovery), not plot or opinion.</p>
+        <div class="table-scroll"><table class="wide">
+          <thead><tr><th scope="col">#</th><th scope="col">Timestamp</th><th scope="col">Exact line (quoted)</th><th scope="col">Verdict</th><th scope="col">Evidence (what the science says)</th><th scope="col">Source(s)</th></tr></thead>
+          <tbody><tr><td class="num">1</td><td class="num">0:42</td><td>"…"</td><td>Supported / Exaggerated / Invented</td><td>2–4 sentences</td><td>Citation</td></tr></tbody>
+        </table></div>
+        <h4>Field Guide Entry (15 points)</h4>
+        <p>Create a one-page illustrated field guide entry that compares your monster side by side with the real animal that inspired it. If more than one real organism inspired your monster, choose the one that best matches your clip. Include:</p>
+        <ul>
+          <li>An image of the monster as portrayed and an image of the real animal, both credited (Creative Commons or public-domain images, e.g., NOAA Ocean Exploration or MBARI)</li>
+          <li>Key facts about the real animal: size, depth range, habitat, and notable adaptations</li>
+          <li>A visual "Reality Meter" summarizing your 6 verdicts (use labels or symbols as well as color)</li>
+          <li>At least 3 labeled differences between the monster and the real animal</li>
+          <li>Alt text for each image (1–2 sentences)</li>
+        </ul>
+        <h4>Reflection (7 points)</h4>
+        <p>In 250–400 words, explain which claim surprised you most and why; why you think the media exaggerated or invented the traits it did (consider entertainment, fear of the unknown, and audience expectations); and how this will change the way you watch science media in the future.</p>
+        <h4>References and AI Use Note (5 points)</h4>
+        <p>Include an APA reference list of all sources and images, and a 1–3 sentence AI Use Note.</p>
+
+        <h3>Submission details</h3>
+        <ul>
+          <li>Use a minimum of 4 credible sources, including at least one peer-reviewed article, in APA style. Reputable sources include NOAA, MBARI, Smithsonian Ocean, Schmidt Ocean Institute, and museum or university research pages. Wikipedia, blogs, AI chatbots, and media clips cannot be used as evidence.</li>
+          <li>Field guide no longer than one page; reflection 250–400 words.</li>
+          <li>Submit two files in Canvas: (1) Fact-Check Log &amp; Reflection (.docx or PDF, with clip link, references, and AI Use Note) and (2) Field Guide Entry (PDF).</li>
+          <li>Due Sunday of Week 5 at 11:59 PM Pacific Time. If you need more time, message me before the due date and we'll work out a plan.</li>
+          <li>Tools: Canvas, plus a free design tool of your choice (Canva for Education, Google Slides, Adobe Express, or PowerPoint through OSU's Microsoft 365).</li>
+          <li>Turnitin is enabled for the Fact-Check Log &amp; Reflection. Quoted lines and properly cited material will show as matches, and that's expected.</li>
+          <li><strong>AI tools</strong> may be used to brainstorm a monster or clip, generate search terms, help understand a difficult article, check grammar or layout, or create an illustration of the <em>monster</em> (labeled "AI-generated"). They may not be used to decide verdicts, write evidence explanations or the reflection, create images of the <em>real</em> animal, or serve as evidence.</li>
+          <li>Discuss monsters, clips, and sources with classmates in the Unit 2 Q&amp;A, but claims, verdicts, field guide, and reflection must be your own. See OSU's <a href="https://scs.oregonstate.edu/code-student-conduct" target="_blank" rel="noopener">Code of Student Conduct</a>.</li>
+          <li>You'll receive rubric scores and written or audio feedback within 7 days of the due date.</li>
+        </ul>
+
+        <h3>Tips for success</h3>
+        <ul>
+          <li>Pick your clip early; short clips with lots of confident "facts" work best.</li>
+          <li>Finish your Fact-Check Log before designing your field guide, since the field guide is built from it.</li>
+          <li>"Exaggerated" means a real basis was stretched; "invented" means there's no scientific basis. If you're unsure, explain your reasoning.</li>
+          <li>Use the rubric as a checklist before you submit, and post questions in the Unit 2 Q&amp;A discussion.</li>
+        </ul>
+
+        <h3>Accessibility and accommodations</h3>
+        <ul>
+          <li>Accommodations are determined and approved by Disability Access Services (DAS): 541-737-4098 or <a href="https://ds.oregonstate.edu" target="_blank" rel="noopener">ds.oregonstate.edu</a>.</li>
+          <li>All clips on the curated list have captions. If your own clip doesn't, turn on auto-captions or contact me for an alternative.</li>
+          <li>Your field guide may be a visual layout or a text-based version (with image descriptions in place of images); both are graded with the same rubric.</li>
+          <li>If any part of this assignment creates a barrier, message me. You don't need a DAS accommodation to ask for an alternative.</li>
+          <li>Support: <a href="https://ecampus.oregonstate.edu/services/technical-help.htm" target="_blank" rel="noopener">Ecampus Technical Help</a>, <a href="https://ecampus.oregonstate.edu/services/student-services/online-tutoring/" target="_blank" rel="noopener">Ecampus Online Tutoring</a>, and <a href="https://library.oregonstate.edu" target="_blank" rel="noopener">OSU Libraries</a>.</li>
+        </ul>
+
+        <h3>Rubric</h3>
+        <div class="table-scroll"><table class="wide">
+          <thead><tr><th scope="col">Criteria</th><th scope="col">Excellent</th><th scope="col">Proficient</th><th scope="col">Satisfactory</th><th scope="col">Needs Improvement</th><th scope="col">Not Yet Demonstrated</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Claim Documentation</strong><br><span class="num">8 pts</span></td><td>6 scientific claims with accurate timestamps and exact quoted lines; all three verdict categories represented.</td><td>6 claims with timestamps and quotes; minor errors.</td><td>6 claims, but one verdict category missing or several quotes paraphrased.</td><td>Fewer than 6 claims, or many missing timestamps or quotes.</td><td>No claims documented, or claims are not scientific.</td></tr>
+            <tr><td><strong>Evidence &amp; Verdicts</strong><br><span class="num">15 pts</span></td><td>Every verdict accurate and supported by specific, credible evidence; clearly distinguishes "exaggerated" from "invented."</td><td>Verdicts mostly accurate with clear supporting evidence.</td><td>Verdicts generally reasonable with limited evidence.</td><td>Several verdicts weakly supported or inaccurate.</td><td>Verdicts missing, unsupported, or inaccurate.</td></tr>
+            <tr><td><strong>Field Guide Comparison</strong><br><span class="num">12 pts</span></td><td>Insightful, accurate side-by-side comparison; Reality Meter and 3+ labeled differences make the gap clear.</td><td>Clear, accurate comparison with all required elements.</td><td>Adequate; one required element missing or underdeveloped.</td><td>Vague comparison with several elements missing.</td><td>No comparison, or inaccurate information.</td></tr>
+            <tr><td><strong>Communication &amp; Accessibility</strong><br><span class="num">3 pts</span></td><td>Engaging and clear for a general audience; all images have alt text.</td><td>Clear and organized; images have alt text.</td><td>Mostly clear; some alt text missing.</td><td>Frequent clarity issues; alt text missing.</td><td>Difficult to follow.</td></tr>
+            <tr><td><strong>Reflection</strong><br><span class="num">7 pts</span></td><td>Thoughtful answers to all three prompts with strong connections to course themes.</td><td>Clear answers to all three prompts.</td><td>Answers all prompts but may lack depth.</td><td>Superficial or addresses only some prompts.</td><td>No reflection provided.</td></tr>
+            <tr><td><strong>APA &amp; Citations</strong><br><span class="num">3 pts</span></td><td>4+ credible sources incl. peer-reviewed; flawless citations and image credits.</td><td>Minor citation or formatting errors.</td><td>Some citation errors or missing image credits.</td><td>Frequent citation issues or no peer-reviewed source.</td><td>No citations provided.</td></tr>
+            <tr><td><strong>Academic Integrity Statement</strong><br><span class="num">2 pts</span></td><td>Clear and honest AI Use Note (or "No AI tools were used").</td><td>AI Use Note provided but lacks detail.</td><td>AI Use Note unclear.</td><td>AI Use Note missing.</td><td>Missing; use outside permitted guidelines.</td></tr>
+          </tbody>
+        </table></div>
+        <p><strong>Total: 50 points.</strong> Happy fact-checking!</p>
+        <p style="font-size:.85rem;color:var(--muted)">AI use: Claude (Anthropic) assisted with brainstorming assessment formats and editing the rubric. The assessment design and final draft are my own work.</p>
+      </section>
+
+      <div class="pager" id="pager"></div>
+    </main>
+  </div>
+
+  <footer>Caroline Edmonds · Oregon State University · Built for GRAD 550, Fall 2026</footer>
+</div>
+
+<script>
+(function () {
+  var order = ["home","philosophy","syllabus","outcomes","multimedia","discussion","formative","summative"];
+  var names = {home:"Introduction",philosophy:"Teaching Philosophy",syllabus:"Syllabus Selections",outcomes:"Learning Outcomes",multimedia:"Multimedia",discussion:"Discussion Activity",formative:"Formative: Dive Log",summative:"Summative: Monster Files"};
+  function show() {
+    var id = (location.hash || "#home").slice(1);
+    if (order.indexOf(id) < 0) id = "home";
+    document.querySelectorAll(".view").forEach(function (v) { v.hidden = v.dataset.view !== id; });
+    document.querySelectorAll(".gauge a").forEach(function (a) {
+      if (a.getAttribute("href") === "#" + id) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+    });
+    var i = order.indexOf(id), p = document.getElementById("pager"), html = "";
+    if (i > 0) html += '<a href="#' + order[i-1] + '"><span>Previous</span>' + names[order[i-1]] + '</a>';
+    if (i < order.length - 1) html += '<a class="next" href="#' + order[i+1] + '"><span>Next</span>' + names[order[i+1]] + '</a>';
+    p.innerHTML = html;
+  }
+  window.addEventListener("hashchange", function () { show(); window.scrollTo(0, 0); });
+  show();
+})();
+</script>
+</body>
+</html>
