@@ -103,6 +103,14 @@ td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
 .callout { background: var(--accent-soft); border-radius: 8px; padding: 14px 18px; margin: 18px 0; }
 .callout p { margin: 0; }
 
+/* Video thumbnail */
+.video-thumb img { display: block; max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--line); }
+/* Transcript disclosure */
+.transcript { border: 1px solid var(--line); border-radius: 8px; background: var(--surface); margin: 10px 0 24px; }
+.transcript summary { cursor: pointer; padding: 12px 18px; font-weight: 600; }
+.transcript-body { padding: 0 18px 14px; border-top: 1px solid var(--line); }
+.transcript-body h4 { margin: 18px 0 6px; font-size: 0.95rem; }
+.transcript-body p { margin: 0 0 10px; }
 /* Template (in-progress) panels */
 .template-flag { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--lure); background: var(--lure-soft); padding: 5px 12px; border-radius: 999px; margin-bottom: 16px; }
 .slot { border: 2px dashed var(--lure); border-radius: 10px; padding: 16px 20px; margin: 14px 0; background: var(--surface); }
@@ -159,7 +167,7 @@ footer { margin-top: 56px; font-size: 0.82rem; color: var(--muted); border-top: 
         <li><a href="#philosophy"><span>Teaching Philosophy</span><span class="depth">200 m</span></a></li>
         <li><a href="#syllabus"><span>Syllabus Selections</span><span class="depth">500 m</span></a></li>
         <li><a href="#outcomes"><span>Learning Outcomes</span><span class="depth">1,000 m</span></a></li>
-        <li><a href="#multimedia"><span>Multimedia</span><span class="soon">Draft</span></a></li>
+        <li><a href="#multimedia"><span>Multimedia</span><span class="depth">2,000 m</span></a></li>
         <li><a href="#discussion"><span>Discussion Activity</span><span class="depth">3,000 m</span></a></li>
         <li><a href="#formative"><span>Formative: Dive Log</span><span class="depth">3,900 m</span></a></li>
         <li><a href="#summative"><span>Summative: Monster Files</span><span class="depth">4,000 m</span></a></li>
@@ -174,7 +182,7 @@ footer { margin-top: 56px; font-size: 0.82rem; color: var(--muted); border-top: 
         <p class="eyebrow">Introduction</p>
         <h2>A portfolio for teaching the deep sea online</h2>
         <div class="annotation">
-          <span class="label">Draft introduction · edit to your voice</span>
+          <span class="label">About me</span>
           <p>Welcome. I'm a PhD student in Ocean, Earth, and Atmospheric Sciences at Oregon State University, where I study deep-sea benthic communities using imagery from remotely operated vehicles (ROVs). Most people will never see the deep sea in person, which makes it an ideal subject for online learning: the same livestreamed dive footage I use for research can put every student in the control room.</p>
           <p>This portfolio presents materials from a fully online, asynchronous course I designed, <em>Monsters of the Midnight Zone: Myth, Media, and the Real Deep Sea</em>. The course is for non-majors and pairs famous media portrayals of deep-sea "monsters" with the real science behind them. Each item below includes a short note explaining why it's here and what it shows about how I design and facilitate online learning.</p>
         </div>
@@ -185,9 +193,9 @@ footer { margin-top: 56px; font-size: 0.82rem; color: var(--muted); border-top: 
         <h3>What's inside</h3>
         <div class="contents">
           <a href="#philosophy"><span class="s">Complete</span><span class="t">Online Teaching Philosophy</span><span class="d">My approach to teaching ocean science online, in 500 words.</span></a>
-          <a href="#syllabus"><span class="s soon">In progress</span><span class="t">Syllabus Selections</span><span class="d">Technology, communication, response times, and netiquette.</span></a>
+          <a href="#syllabus"><span class="s">Complete</span><span class="t">Syllabus Selections</span><span class="d">Technology, communication, response times, and netiquette.</span></a>
           <a href="#outcomes"><span class="s">Complete</span><span class="t">Learning Outcomes</span><span class="d">Four measurable outcomes built with backward design.</span></a>
-          <a href="#multimedia"><span class="s soon">In progress</span><span class="t">Multimedia Content</span><span class="d">A media item that supports a course outcome.</span></a>
+          <a href="#multimedia"><span class="s">Complete</span><span class="t">Multimedia Content</span><span class="d">A narrated Week 4 video with captions and a full transcript.</span></a>
           <a href="#discussion"><span class="s">Complete</span><span class="t">Discussion Activity</span><span class="d">Asynchronous interaction beyond "post and reply."</span></a>
           <a href="#formative"><span class="s">Complete</span><span class="t">Formative: Dive Log</span><span class="d">Students build a shared water column from real ROV footage.</span></a>
           <a href="#summative"><span class="s">Complete</span><span class="t">Summative: Monster Files</span><span class="d">A fact-check and field guide project in place of an exam.</span></a>
@@ -210,7 +218,7 @@ footer { margin-top: 56px; font-size: 0.82rem; color: var(--muted); border-top: 
         <p class="eyebrow">Portfolio item</p>
         <h2>Syllabus Selections</h2>
         <div class="annotation">
-          <span class="label">Why this is here · draft annotation</span>
+          <span class="label">Why this is here</span>
           <p>In a face-to-face course, students pick up a lot of the "how" of a class just by being in the room: how to reach me, what tools they need, what a respectful discussion sounds like. Online, all of that has to be written down. These excerpts from the <em>Monsters of the Midnight Zone</em> syllabus are the policies that change most when the course moves online. I wrote them to be clear and flexible, and to respect that most of my students are balancing this course with jobs, families, and other classes. They also support the wonder-to-rigor goal in my teaching philosophy. Students can't stay curious about the deep sea if they're stuck on a broken link or unsure whether a late post still counts.</p>
         </div>
 
@@ -271,7 +279,7 @@ footer { margin-top: 56px; font-size: 0.82rem; color: var(--muted); border-top: 
         <p class="eyebrow">Portfolio item</p>
         <h2>Course Learning Outcomes</h2>
         <div class="annotation">
-          <span class="label">Why this is here · draft annotation</span>
+          <span class="label">Why this is here</span>
           <p>These four outcomes anchor every assessment in the course through backward design. Each describes something a student can do long after the course ends, uses an observable verb from Bloom's Taxonomy, and can be measured. The formative Dive Log practices LO1, and the summative Monster Files project assesses LO2.</p>
         </div>
         <p>By the end of the course, students will be able to:</p>
@@ -285,14 +293,56 @@ footer { margin-top: 56px; font-size: 0.82rem; color: var(--muted); border-top: 
         <p style="font-size:.85rem;color:var(--muted)">Anthropic. (2026). <em>Claude</em> (Opus 5.5 version) [Large language model]. https://claude.ai</p>
       </section>
 
-      <!-- ============ MULTIMEDIA (TEMPLATE) ============ -->
+      <!-- ============ MULTIMEDIA ============ -->
       <section class="view" id="view-multimedia" data-view="multimedia" hidden>
         <p class="eyebrow">Portfolio item</p>
         <h2>Multimedia Content</h2>
-        <span class="template-flag">Template · content coming</span>
-        <div class="slot"><h4>Annotation</h4><p>What the item is, which learning outcome it supports, and why you chose or made it.</p></div>
-        <div class="slot"><h4>The item</h4><p>A link to the video, mini lecture, podcast, infographic, or other resource (the Week 4 item, or a high-quality, stable found object). Videos can't be embedded here; link out and add a thumbnail image if you like.</p></div>
-        <div class="slot"><h4>Accessibility</h4><p>Captions, transcript, or alt text details.</p></div>
+        <div class="annotation">
+          <span class="label">Why this is here</span>
+          <p>This is the narrated video I recorded to open Week 4 of <em>Monsters of the Midnight Zone</em>. It walks students through the Dive Log activity: why we're watching real ROV footage, the four "rules" of the deep sea (pressure, darkness, cold, and scarce food), the step-by-step path through the week, a worked example of a Padlet pin, and what success looks like. It supports LO1 (explain how the physical conditions of the deep sea shape its organisms and habitats). It also asks students to try the skill before they start by pausing the video, picking one rule, and predicting how it might change an animal.</p>
+          <p>I made this video myself rather than relying only on written instructions because instructor presence matters in an asynchronous course. Hearing my voice and seeing a worked example lowers the barrier to a task that may feel unfamiliar to non-majors. It reflects my teaching philosophy in two ways. It treats media as data, modeling how a scientist reads the on-screen depth and timestamp from ROV footage. And it is built for access: it is captioned, has a full transcript, and is short enough to stream on a slower connection.</p>
+        </div>
+
+        <h3>The video</h3>
+        <p><strong>Dive Log: Building Our Class Water Column</strong> · Unit 2, Week 4 · narrated slide presentation</p>
+        <p><a class="video-thumb" href="https://youtu.be/schqaNV9xnw" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/schqaNV9xnw/hqdefault.jpg" alt="Video thumbnail: Dive Log, Building Our Class Water Column" loading="lazy" width="480" height="360"></a></p>
+        <p><a href="https://youtu.be/schqaNV9xnw" target="_blank" rel="noopener">Watch the video on YouTube</a> (opens in a new tab)</p>
+
+        <h3>Accessibility</h3>
+        <ul>
+          <li><strong>Captions:</strong> closed captions on YouTube, created from the transcript below and checked for accuracy, including scientific terms and names.</li>
+          <li><strong>Transcript:</strong> the full transcript is below and is also posted as a downloadable document in Canvas.</li>
+          <li><strong>Visual content:</strong> everything shown on the slides is also described in the narration, so nothing depends on seeing the screen.</li>
+          <li><strong>Alternatives:</strong> if streaming doesn't work for a student, the transcript covers all of the instructions. Students never need a DAS accommodation to ask me for another format.</li>
+        </ul>
+
+        <h3>Transcript</h3>
+        <details class="transcript">
+          <summary>Read the full video transcript</summary>
+          <div class="transcript-body">
+            <h4>Slide 1: Welcome</h4>
+            <p>Hi everyone, and welcome to Week 4! I&#x27;m Caroline. This week we&#x27;re trading monster movies for the real thing. Let me walk you through our activity, the Dive Log, where together we&#x27;ll build a class &quot;water column&quot; of a real deep-sea canyon.</p>
+            <h4>Slide 2: This week, you’re the scientist in the room</h4>
+            <p>So far, we&#x27;ve looked at how filmmakers and viral videos show the deep sea. This week, you&#x27;re the scientist in the room. You&#x27;ll watch real, unedited footage from an underwater robot, an ROV, exploring a canyon off Argentina, nearly 4,000 meters down.</p>
+            <p>One dive only shows a small slice of the ocean. But if each of you brings back one animal, pinned at the depth where you saw it, together we can map the whole canyon.</p>
+            <h4>Slide 3: What we’re practicing</h4>
+            <p>Here&#x27;s the skill we&#x27;re practicing: explaining how the physical conditions of the deep sea shape the organisms and habitats found there. You&#x27;ll use four &quot;rules&quot; all week: pressure, darkness, cold, and scarce food.</p>
+            <p>Let&#x27;s try it now. Pause this video, pick one rule, and guess: how might it change the way an animal looks or moves? Hold on to that guess. You&#x27;ll test it in the footage.</p>
+            <h4>Slide 4: Meet our dive</h4>
+            <p>Our footage comes from a July 2025 expedition led by Argentine scientists from CONICET, Argentina&#x27;s national science agency, with chief scientist Dr. Daniel Lauretta. The livestream drew more than a million views a day in Argentina!</p>
+            <p>I also want to be upfront about whose voices we&#x27;re hearing. The ship belongs to the Schmidt Ocean Institute, a U.S. nonprofit founded by Eric and Wendy Schmidt. And voices like Argentina&#x27;s coastal and Indigenous communities and local fishers aren&#x27;t in these materials. So keep asking: who pays for exploration, and who tells its story?</p>
+            <h4>Slide 5: Your path through the week</h4>
+            <p>Here&#x27;s your path. One: watch my mini-lecture and skim the Smithsonian page. Two: pick a dive. I recommend Station 69, but you&#x27;re welcome to explore. Choose 20 minutes near the seafloor, and if the scientists are speaking Spanish, turn on YouTube&#x27;s auto-translate. Three: pause on one organism and take a screenshot. No name needed! Four: pin it to our Padlet, in the right depth column, by Thursday. Then by Sunday, five: comment on two classmates&#x27; pins, one in a different zone. And six: write your Pattern Post.</p>
+            <h4>Slide 6: Let me show you a pin</h4>
+            <p>Here&#x27;s an example pin. A red jelly, about the size of a fist. I note the dive, timestamp, and depth from the robot&#x27;s on-screen data. I describe two things I can see: a domed bell and slow pulsing. Then the key part: I link one feature to one rule, with a &quot;because.&quot; It&#x27;s red, which works like camouflage because of darkness. Red light doesn&#x27;t reach this deep, so red looks black. I add a short image description for screen readers, and I mark my confidence. &quot;Guessing&quot; is completely welcome.</p>
+            <h4>Slide 7: Step back and find the pattern</h4>
+            <p>Once our board fills in, scroll the whole water column, top to bottom. In your Pattern Post, describe one thing that changes across at least two depth zones, explain which rule you think causes it, and share one question you still have. On Monday of Week 5, I&#x27;ll post a video walking through our board and answering your questions.</p>
+            <h4>Slide 8: What success looks like</h4>
+            <p>This is practice, scored Complete or Not Yet. I&#x27;m grading your reasoning, not whether every guess is right. Use these six criteria as your checklist. If anything is marked Not Yet, you&#x27;ll get feedback and can revise by Wednesday of Week 5.</p>
+            <h4>Slide 9: See you in the deep!</h4>
+            <p>All my videos have captions and transcripts. If streaming, captions, or Padlet don&#x27;t work for you, message me and we&#x27;ll find another way. You never need a DAS accommodation to ask. I can&#x27;t wait to see our water column fill up. See you in the deep!</p>
+          </div>
+        </details>
       </section>
 
       <!-- ============ DISCUSSION ============ -->
@@ -300,8 +350,9 @@ footer { margin-top: 56px; font-size: 0.82rem; color: var(--muted); border-top: 
         <p class="eyebrow">Asynchronous discussion activity</p>
         <h2>Negotiating the Deep: An ISA Council Hearing</h2>
         <div class="annotation">
-          <span class="label">Why this is here · draft annotation</span>
+          <span class="label">Why this is here</span>
           <p>This Week 6 activity moves beyond "post and reply" by turning a Canvas group discussion into a structured role-play hearing on a fictional deep-sea mining application in the Clarion-Clipperton Zone. Students testify for an assigned stakeholder, challenge a classmate from a different group with an evidence-based counter-argument, and defend their own position, so every student is challenged exactly once. Built from LO3, it asks students to notice how each group frames the deep sea and whose perspectives go missing, while practicing the sourcing and integrity habits from Monster Files.</p>
+          <p>This is where my philosophy's final goal comes in: science literacy that outlasts the course. Students practice evaluating claims about a deep ocean that is increasingly shaped by human decisions, and mining is the clearest example.</p>
         </div>
         <ul class="meta">
           <li>Week 6</li><li>25 points</li><li>LO3 (primary) · LO4 (practice)</li><li>Canvas group discussion</li><li>Fully online, asynchronous</li>
@@ -458,8 +509,9 @@ footer { margin-top: 56px; font-size: 0.82rem; color: var(--muted); border-top: 
         <p class="eyebrow">Formative assessment · Guided practice</p>
         <h2>Dive Log: Building Our Class Water Column</h2>
         <div class="annotation">
-          <span class="label">Why this is here · draft annotation</span>
+          <span class="label">Why this is here</span>
           <p>This low-stakes activity puts students in the scientist's seat with real, unedited ROV footage from an Argentine-led expedition in the Mar del Plata Canyon. Each student pins one organism at the depth they observed it on a shared Padlet board, so the class builds a picture of the whole canyon that no single dive could show. It demonstrates active learning, peer-to-peer interaction, a deliberate look at whose voices are represented, and a feedback loop: I use what I see on the board to plan a follow-up video.</p>
+          <p>It is the first step in the arc my philosophy describes, from wonder to careful observation grounded in evidence. Students meet real deep-sea animals the way scientists do, through a screen, and practice moving from "what is that?" to an explanation tied to a physical condition.</p>
         </div>
         <ul class="meta">
           <li>Unit 2</li><li>5 points · Complete / Not Yet</li><li>LO1</li><li>About 1.5–2 hours</li><li>Padlet + Canvas</li>
@@ -568,8 +620,9 @@ footer { margin-top: 56px; font-size: 0.82rem; color: var(--muted); border-top: 
         <p class="eyebrow">Summative assessment</p>
         <h2>Monster Files: Fact-Checking the Midnight Zone</h2>
         <div class="annotation">
-          <span class="label">Why this is here · draft annotation</span>
+          <span class="label">Why this is here</span>
           <p>This project replaces a traditional exam with a creative, fully asynchronous task built through backward design from LO2. Students fact-check six claims in a short media clip about a deep-sea "monster," then publish a field guide entry comparing the monster to the real animal. It targets Bloom's <em>analyze</em> and <em>evaluate</em> levels, builds academic integrity in through personal clip choice, quoted timestamps, and a clear AI policy, and leaves students with a skill they can use on any science story.</p>
+          <p>It turns the wonder of a good monster story into scientific rigor. This is the myth-versus-reality analysis my philosophy describes, and it asks students to weigh each claim against evidence and explain their verdict to an outside audience.</p>
         </div>
         <ul class="meta">
           <li>Unit 2</li><li>50 points</li><li>LO2</li><li>Fully online, asynchronous</li><li>Due Sunday of Week 5</li>
